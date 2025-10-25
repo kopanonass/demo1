@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deshebot Portal</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- AUTHENTICATION OVERLAY -->
+<div class="overlay" id="authOverlay">
+    <div class="auth-box" id="loginBox">
+        <h2>Login</h2>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button onclick="enterDashboard()">Login</button>
+        <p>Don't have an account? <span onclick="showRegister()">Register</span></p>
+    </div>
+    
+    <div class="auth-box" id="registerBox" style="display:none;">
+        <h2>Register</h2>
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="text" id="mentor" placeholder="Mentor's Name" required>
+        <input type="text" id="cell" placeholder="Cell Number" required>
+        <input type="email" id="email" placeholder="Gmail" required>
+        <input type="text" id="amount" placeholder="R2000" value="R2000" readonly>
+        <button id="payButton">Register & Pay</button>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div class="dashboard" id="dashboard" style="display:none;">
+    <div class="sidebar">
+        <h2>Deshebot</h2>
+        <a href="#" onclick="showSection('eas')"><i class="fa-solid fa-cubes"></i>EAs</a>
+        <a href="#" onclick="showSection('create')"><i class="fa-solid fa-plus"></i>Create EA</a>
+        <a href="#" onclick="showSection('generate')"><i class="fa-solid fa-key"></i>Generate Key</a>
+        <a href="#" onclick="showSection('buy')"><i class="fa-solid fa-cart-shopping"></i>Buy Keys</a>
+    </div>
+    <div class="main">
+        <h1>Welcome to ROBOVAULT</h1>
+        <div id="eas" class="card-section"><div class="card">View All EAs</div></div>
+        <div id="create" class="card-section" style="display:none;">
+            <div class="card">Create a New EA</div>
+            <input type="text" placeholder="EA Name">
+            <button>Create EA</button>
+        </div>
+        <div id="generate" class="card-section" style="display:none;">
+            <div class="card">Generate Key</div>
+            <input type="text" placeholder="EA Name">
+            <button>Generate</button>
+        </div>
+        <div id="buy" class="card-section" style="display:none;">
+            <div class="card">Buy Keys</div>
+            <button>Buy Now</button>
+        </div>
+    </div>
+</div>
+
+<!-- Paystack script -->
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
